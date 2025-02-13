@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter to my Crush</title>
+    <style>
+        @font-face {
+            font-family: Poppins;
+            src: url(./assets/Font/Poppins-Bold.ttf);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins;
+
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100dvh;
+        }
+
+        section.innerHolder {
+            height: 90dvh;
+            width: 90dvw;
+            max-width: 400px;
+            position: relative;
+            /* box-shadow: 5px 5px 5px rgba(0,0,0,0.5); */
+        }
+
+        .upper,
+        .lower {
+            position: absolute;
+            width: 100%;
+            height: calc((100% / 3) + (100% / 3));
+            transition: .5s ease-in-out;
+        }
+
+        .upper {
+            top: 0;
+            left: 0;
+        }
+
+        .lower {
+            bottom: 0;
+            left: 0;
+        }
+
+        .upper>.toFlip {
+            height: 50%;
+            background-color: white;
+            box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.5);
+
+
+        }
+
+        .lower>.toFlip {}
+
+        .toFlipHolder {
+            height: 100%;
+            position: relative;
+
+        }
+
+        .toFlipHolder>.toFlip {
+            position: absolute;
+            height: 50%;
+            width: 100%;
+            background-color: white;
+            bottom: 0;
+            left: 0;
+            transition: .5s ease-in-out;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .toFlipHolder>.clickToOpen {
+            position: absolute;
+            height: 50%;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            transition: .5s ease-in-out;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+            transform: rotateX(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background-image: url(./assets/valentines.jpg);
+            object-fit: cover;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            
+        }
+
+        .lower,
+        .upper {
+            transform: rotateX(180deg);
+        }
+
+        .letterHolder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: calc((100% / 3));
+            overflow-y: auto;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.5);
+            background-image: url(./assets/1.jpg);
+            object-fit: cover;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: .5s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .myLetter {
+            text-indent: 10px;
+            text-align: justify;
+            padding: 20px;
+
+        }
+
+        .actualContent {
+            backdrop-filter: blur(10px);
+            font-size: .8em;
+            padding: 5px;
+            height: 100%;
+            
+        }
+
+        strong {
+            padding: 10px;
+        }
+
+        .from {
+            display: flex;
+            justify-content: flex-end;
+            /* padding: 10px; */
+        }
+
+        body {
+            position: relative;
+            background-image: url(./assets/1.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+        }
+
+        #top {
+            position: absolute;
+            height: 100dvh;
+            width: 100dvw;
+            top: 0;
+            left: 0;
+            /* background-color: black; */
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(3px);
+            overflow: hidden;
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+
+        }
+
+        button{
+            border: none;
+            padding: 8px 10px;
+            background-color: rgba(255, 100, 100, 0.6);
+            margin-bottom: 10px;
+
+        }
+        button:hover{
+            background-color: rgba(255, 100, 100, 0.8);
+        }
+
+
+        .marqueeElement {
+            width: max-content;
+            height: max-content;
+            margin: 10px;
+            animation: myMarqueeAnimation 10s infinite;
+            border-radius: 10px;
+            position: absolute;
+            top: 10%;
+            background-color: transparent !important;
+            aspect-ratio: 1;
+            font-size: 5em;
+        }
+
+        .containerMarquee {
+            height: 100vh;
+            width: 100%;
+            background-color: rgb(10, 10, 10);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .Charge {
+            height: 100%;
+            top: 0% !important;
+            border-radius: 0px;
+
+        }
+
+        @keyframes myMarqueeAnimation {
+            0% {
+                transform: translate(0px, 0px);
+            }
+
+            100% {
+                transform: translate(110vw, 0px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="top">
+
+    </div>
+    <main>
+        <section class="innerHolder" id="innerHolder">
+            <div class="letterHolder" id="letterHolder">
+                <div class="actualContent" id="actualContent">
+                    <strong>Dear Crush,</strong>
+                    <p class="myLetter">
+                        Annyeonghaseyo, I hope you are doing well. By the way, good morning. I'm a student here in CEC, taking up
+                        BSIT - 1st year. To be honest, I'm not this courageous to confess my feelings to someone I like,
+                        however, we have this activity in <em>Sining ng Komunikasyon</em> where we are required to give a
+                        letter to someone we like and I like you! That's why I'm giving you this letter to let you know
+                        that I really like you! You're so pretty. I really like that way you act with confidence, that
+                        way you smile , as in cute kaayo ka huhuhuhu. I don't know if taken na ka or dili pa. Basta ako
+                        kay I'm just admiring from afar. Dili lang kaayo nako taason. Thank you for sparing your
+                        precious time for reading my letter.
+                    </p>
+
+                    <p class="from">
+                        <strong> - Nobody (<em>B. S.</em>)</strong>
+
+                    </p>
+                </div>
+            </div>
+            <div class="upper" id="upper">
+                <div class="toFlip"></div>
+            </div>
+            <div class="lower" id="lower" onclick="openLetter()">
+                <div class="toFlipHolder">
+                    <div class="toFlip"></div>
+                    <div class="clickToOpen" id="clickToOpen">
+                        <button>Click to Open</button>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+        
+    </main>
+</body>
+
+<script>
+    function openLetter() {
+        let lower = document.getElementById('lower');
+        let upper = document.getElementById('upper');
+        let letterHolder = document.getElementById('letterHolder');
+        let innerHolder = document.getElementById('innerHolder');
+        let clickToOpen = document.getElementById('clickToOpen');
+
+        lower.style.transform = "rotateX(0deg)";
+        clickToOpen.style.backgroundColor = "white";
+        clickToOpen.style.backgroundImage = "none";
+        clickToOpen.innerHTML = "";
+        
+        setTimeout(function () {
+            upper.style.transform = "rotateX(0deg)";
+        }, 500);
+        
+        setTimeout(function () {
+            letterHolder.style.zIndex = '10';
+            letterHolder.style.height = "calc(100% / 2)";
+            upper.style.opacity = "0";
+            lower.style.opacity = "0";
+        }, 1200);
+    }
+
+
+
+    let containerMarquee = document.getElementById('top');
+    function createMarqueeElement() {
+
+        let myTopMargin = Math.floor(Math.random() * 100 + 1);
+        let timingFunction = Math.floor(Math.random() * 10 + 1);
+        let widthFunction = Math.floor(Math.random() * 50 + 21);
+        let createElement = document.createElement("div");
+        createElement.classList.add('marqueeElement');
+        let firstParameter = Math.floor(Math.random() * 255 + 1);
+        let secondParameter = Math.floor(Math.random() * 255 + 1);
+        let thirdParameter = Math.floor(Math.random() * 255 + 1);
+        createElement.style.top = myTopMargin + "%";
+        createElement.style.left = "-50px";
+        createElement.style.fontSize = Math.floor(Math.random() * 5 + 1) + "em";
+        createElement.innerHTML = "&#128151;";
+        createElement.style.animation = "myMarqueeAnimation " + timingFunction + "s infinite"
+        createElement.style.background = `rgba(255, 100, 100, 1)`;
+        containerMarquee.appendChild(createElement);
+        setTimeout(function () {
+            createElement.remove();
+            createMarqueeElement();
+        }, timingFunction + "000");
+
+    }
+
+    let myIntervalMarquee;
+    let countmarquee = 0;
+    myIntervalMarquee = setInterval(function () {
+        createMarqueeElement();
+        countmarquee++;
+        if (countmarquee == 50) {
+            clearInterval(myIntervalMarquee);
+            console.log("interval cleared");
+        }
+    }, 500);
+</script>
+
+</html>
